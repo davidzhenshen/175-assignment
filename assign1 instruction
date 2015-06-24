@@ -1,0 +1,97 @@
+Assignment 1
+
+
+
+Assignment 1 -  Magic Squares & Handicaps
+
+The first assignment consists of two problems. Test data for both problems is located HERE. Please make sure to read the readme information file in the sample directory.
+
+Magic Square (40%)
+
+A magic square is an n x n matrix that contains numeric values from 1 to n2. The sum of each row, each column, and each diagonal will add up to (n  (n2 + 1))  2. For example, the 4 x 4 matrix below is a magic square and it has a magic number of (4  (42 + 1))  2 = 34.
+
+1 8 10 15 
+12 13 3 6 
+7 2 16 9 
+14 11 5 4 
+
+Problem Task
+
+The task for this part of the assignment is to write a Python application that will read in a square matrix from a text file and check to see if the matrix is a magic square. The text file will only contain the matrix and no other lines or data. The size of the matrix will have to be discerned from the input data. Display the square and the result, i.e. is the square magic and it's magic value, to the user.
+
+Sample Run
+gergel@ohaton~ python3 magicsquare.py testfile.txt
+1  8  10 15
+12 13 3  6
+7  2  16 9
+14 11 5  4
+The input matrix is magic square and has a magic number of 34.
+
+gergel@ohaton~ python3 magicsquare.py testbad.txt
+1 2 3 4
+5 6 7 8
+9 10 11 12
+13 14 15 16
+The input matrix is not a magic square.
+
+Problem 2 - Golf Handicap Index (50%)
+
+The second task in this assignment is to create an application that will compute the golf handicap values for club members at the Shady Valley Golf & Country Club.
+
+Golf is a wonderous game - some people wonder why they can't play more and others wonder why play such a silly game at all. A typical round of golf consists of playing 18 holes. Each hole has a set value called par, which represents what a player is expected to score on the hole; that is, how many shots the player takes to shoot his golf ball from the tee box (the start) to the hole (the end). The par value for a golf course represents the total number of strokes, or shots, expected to complete a round of golf.
+
+The reality is very few golfers actually shoot a score at par; most players shoot above this value. Golf is also typically competitive, either between friends out for a round on sunday afternoon to the professional golfers that we can watch on TV. Therefore, there is a need for a system that allows golfers of varying ability to play against one another and compare their respective round to each other.
+
+The handicap index system was developed to allow players of differing abilities to play against one another using a system loosely based on their average scores. A player's handicap index value represents a player's ability to play golf and roughly what they score above par is on average for a round of golf. This allows a golfer who may be weaker than a playing partner to receive bonus strokes throughout a round of golf. At the end of a round, each player deducts their handicap from their gross score to gain their net score, which they can can compare to see who had the better round of golf. The computation of handicaps is typically complicated, but the club members at Shady Valley are a rather laid back bunch. Therefore, the following method will be used to compute each member's handicap
+•When computing the score for each round of golf, no hole can have a score greater than 10. This is done to help avoid inflation of handicaps by unscrupulous players (and save a few egos too).
+•The handicap is the average of the 10 best rounds a golfer has recorded less the par value of golf course. Round the resulting average up (take the ceiling). i.e., If the average was 93.12, then the resulting average should be 94. This value is an integer and it should be rounded up. For example, Joe Golfer's 10 best rounds are an average of 95. Thus, his handicap would be 95 - 72 = 23 where the par for the golf course is 72.
+•A golfer must have completed 20 rounds of golf to get a handicap. The slackers who have completed less need to play more golf!
+
+Shady Valley's golf couse is is par 72 and the score card is as follows
+
+Hole 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 
+Par 5 4 4 4 3 5 3 4 5 4 4 5 3 4 4 3 4 4 
+
+ 
+
+Problem Task
+
+The task for this problem to create a Python application called golfhandicaps.py. The program will read in a text file containing the raw data dump of golf scores from Shady Valley G&CC. With this data, the handicap should be computed for each player using the rules stated above. The results should be printed out to the user (standard out, or to the screen) as well as written to a file called handicaps.txt.
+
+The data file will be structured such that each round of golf will consist of two lines of data. The first line will contain the player's name. The second line will contain the 18 values - what the golfer shot for each hole. Each game will be separated by a blank line. The very first line in the data file will contain the par values for the golf course. It will start with the word 'par'. I.E. par 5 4 4 4 3 5 3 4 5 4 4 5 3 4 4 3 4 4.
+
+The output should list the golfer's name followed by their handicap score. If a golfer has not played enough rounds to have a handicap, print 'Needs to play more golf!'. Golfer's whose computed handicap is = 0 are called scratch golfers. Thus, print the word 'Scratch' after their name. A sample of the expected output is shown below.
+
+Sample Run
+gergel@ohaton~ python3 golfhandicaps.py golfdata.dat
+The handicaps for members of Shady Valley G&CC are
+Kurt Fraher 14
+Max Moraga Needs to play more golf!
+Clare Skillern 7
+Kelly Vine Scratch
+
+gergel@ohaton~
+
+Coding Style (10%)
+
+The coding standard this semester will be based on a subset of the Python PEP 8 Style Guide.
+•Use the sample template from the main page as a starting point. This is the basic structure the TA will be expecting when marking assignments.
+•Use 4 spaces per indendation level.
+•79 character maximum per line.
+•Each import on a single line.
+
+CORRECT
+import random
+import math
+
+INCORRECT
+import math, random
+•Use blank lines sparingly, but use them. i.e. No large gaps between sections of code where there are more than a couple of blank lines. Also, a file that has no blank lines is equally bad.
+•Comments should be complete sentences and match the code they describe. The key to writing good comments is to capture the programmer's intent in the comment where the actual code might be confusing.
+•Correct spelling and grammar are required. This mostly pertains to comments.
+•Naming conventions ◦Variables should be lower case letters where each word is separated with an underscore. i.e. total_score
+◦Constant values should all be in upper case. i.e. MAX_VALUE
+◦Function should use the same convention as variables - lower case letters with words separated by an underscore.
+◦Classes will use the CapWords structure. i.e. GamePlay
+◦All variables, functions, and classes need to have meaningful names. Using names such as 'x' or 'b' is not acceptable.
+
